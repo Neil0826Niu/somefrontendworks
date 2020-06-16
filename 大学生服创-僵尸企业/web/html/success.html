@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>download</title>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/jquery.cookie-1.4.1.min.js"></script>
+    <link rel="stylesheet" href="../css/success.css">
+</head>
+
+<body>
+    <div class="background">
+        <div class="header">
+            <div class="login">
+                <div class="gotologin">
+                    <img src="../img/用户.png" style="width:30px;margin-right: 10px;">
+                    <a href="../html/login.html">
+                        <img src="../img/登陆_注册.png" class="logintxt">
+                    </a>
+                </div>
+                <div class="userinf" style="display: none">
+                    <span class="username">233</span>
+                    <button class="gotocenter">个人中心</button>
+                    <button class="logout">退出</button>
+                </div>
+            </div>
+        </div>
+        <div class="middle">
+            <div class="left">
+                <img src="../img/企业一查通.png" class="logo">
+                <img src="../img/download/小秘书.png" class="person">
+            </div>
+            <div class="right">
+                <img src="../img/广告1.png">
+                <div>恭喜您!&nbsp&nbsp下载成功！</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            var username = $.cookie('username');
+            if (username != null) {
+                $('.gotologin').css('display', 'none')
+                $('.userinf').css('display', '')
+                $('.username').html(username);
+            }
+            else {
+                $('.gotologin').css('display', '')
+                $('.userinf').css('display', 'none')
+
+            }
+            $('.logout').click(function () {
+                $.removeCookie('username', { path: '/' })
+                window.location.href = "../html/index.html";
+            });
+        });
+    </script>
+</body>
+
+</html>

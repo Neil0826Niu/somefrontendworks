@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/jquery.cookie-1.4.1.min.js"></script>
+</head>
+
+<body>
+    <div class="background">
+        <div class="back">
+            <a href="../html/index.html">返回</a>
+        </div>
+        <div class="middle">
+            <div class="logo"><img src="../img/企业一查通.png"></div>
+            <div class="card">
+                <div class="logincard" id="logincard">
+                    <div><button class="gotorigester"><img src="../img/注册按钮.png" style="width: 90px;"></button></div>
+                    <form action="" method="post" id="loginform">
+                        <div><input type="text" class="account" id="loginusername"
+                                onKeyUp="value=value.replace(/[\W]/g,'')"></div>
+                        <div><input type="password" class="password" id="loginpassword"></div>
+                        <div class="button"><button type="button" class="loginbtn"><img src=" ../img/登陆按钮.png"></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="registercard" id="registercard">
+                    <div><button class="gotologin"><img src="../img/登陆按钮.png" style="width: 90px;"></button></div>
+                    <form action="" method="post" id="registerform">
+                        <div>
+                            <input type="text" class="account" id="username" placeholder="4-12位，仅字母数字"
+                                onKeyUp="value=value.replace(/[\W]/g,'')">
+                            <img src="../img/警告.png" class="tip" id="tip1" style="display: none">
+                        </div>
+                        <div>
+                            <input type="password" class="password" id="password" placeholder="8-32位字符">
+                            <img class="tip" id="tip2">
+                        </div>
+                        <div>
+                            <input type="password" class="passwordconf" id="passwordconf" placeholder="请再输入一遍密码">
+                            <img class="tip" id="tip3">
+                        </div>
+                        <div class="button"><button type="button" class="registerbtn"><img
+                                    src="../img/注册按钮.png"></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            var font = $('#logincard');
+            var back = $('#registercard');
+            $('.gotorigester').click(function () {
+                font.css('transform', 'perspective(600px) rotateX(-180deg)');
+                font.css('transition', 'transform 0.5s linear');
+                back.css('transform', 'perspective(600px) rotateX(0deg)');
+                back.css('transition', 'transform 0.5s linear');
+            });
+            $('.gotologin').click(function () {
+                font.css('transform', 'perspective(600px) rotateX(0deg)');
+                back.css('transform', 'perspective(600px) rotateX(180deg)');
+            });
+
+            var usernamechecked = false;
+            var passwordchecked = false;
+            var passwordconfchecked = false;
+            var username;
+            var password;
+
+            //账号名称检测
+            $('#username').change(function () {
+                var word = $('#username').val();
+                username = word;
+                console.log(username);
+
+                if (word.length < 4 || word.length > 12) {
+                    $('#tip1').css('display', '');
+                    usernamechecked = false;
+                }
+                else {
+                    $('#tip1').css('display', 'none');
+                    usernamechecked = true;
+                }
+            });
+
+            //密码检测
+            $('#password').change(function () {
+                var word = $('#password').val();
+                password = word;
+                if (word.length < 8 || word.length > 32) {
+                    $('#tip2').attr('src', '../img/错误.png');
+                    passwordchecked = false;
+                }
+                else {
+                    $('#tip2').attr('src', '../img/正确.png');
+                    passwordchecked = true;
+                }
+
+                var word2 = $('#passwordconf').val();
+                if (word2.length < 8 || word2.length > 32 || word2 != password) {
+                    $('#tip3').attr('src', '../img/错误.png');
+                    passwordconfchecked = false;
+                }
+                else {
+                    $('#tip3').attr('src', '../img/正确.png');
+                    passwordconfchecked = true;
+                }
+            });
+
+            //确认密码检测
+            $('#passwordconf').change(function () {
+                var word = $('#passwordconf').val();
+                if (word.length < 8 || word.length > 32 || word != password) {
+                    $('#tip3').attr('src', '../img/错误.png');
+                    passwordconfchecked = false;
+                }
+                else {
+                    $('#tip3').attr('src', '../img/正确.png');
+                    passwordconfchecked = true;
+                }
+            });
+
+            //注册
+            $('.registerbtn').click(function () {
+                if (usernamechecked && passwordchecked && passwordconfchecked) {
+                    var registerlist = {
+                        "username": username,
+                        "password": password,
+                        "isregisterOK": "false"
+                    }
+                    $.ajax({
+                        type: "POST",
+                        url: "../data/register",
+                        contentType: "application/json",
+                        dataType: "json",
+                        data: JSON.stringify(registerlist),
+                        success: function (data) {
+                            window.location.href("../html/login.html");
+                            if (data.isregisterOK) {
+                                alert("注册成功，请登录！");
+                            }
+                            else
+                                alert("注册失败！");
+                        }
+                    })
+                }
+                else
+                    alert("请填写正确用户名或密码");
+            });
+
+            //登录数据
+            var loginusername;
+            var loginpassword;
+            $('#loginusername').change(function () {
+                loginusername = $('#loginusername').val();
+            });
+            $('#loginpassword').change(function () {
+                loginpassword = $('#loginpassword').val();
+            });
+
+            //登陆
+            $('.loginbtn').click(function () {
+                // $.cookie('username', loginusername, { expires: 7, path: '/' });
+                // window.location.href='../html/index.html'
+                var loginlist = {
+                    "username": loginusername,
+                    "password": loginpassword,
+                    "isloginOK": "false"
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "../data/login",
+                    contentType: "application/json",
+                    dataType: "json",
+                    data: JSON.stringify(loginlist),
+                    success: function (data) {
+                        if (data.isloginOK) {
+                            $.cookie('username', username, { expires: 7, path: '/' });
+                            window.location.href = "../html/index.html"
+                        }
+                        else
+                            alert("账号或密码错误！");
+                    }
+                })
+            });
+        });
+    </script>
+</body>
+
+</html>

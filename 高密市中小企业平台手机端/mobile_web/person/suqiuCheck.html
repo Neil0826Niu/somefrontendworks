@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>查看诉求</title>
+		<script src="/mobile_web/js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/mobile_web/js/global.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/mobile_web/js/axios.min.js"></script>
+		<script src="/mobile_web/js/jquery-3.4.1.min.js"></script>
+		<script src="../js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/personhead.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../css/suqiuCheck.css" />
+	</head>
+	<body>
+		<div id="app">
+			<div class="head">
+				<a href="/mobile_web/person/suqiuManage.html"><img src="../img/userHome/back.png"></a>
+				<div class="title">查看诉求</div>
+			</div>
+
+			<div class="main">
+				<div class="white-bg">
+					<div class="item" id="type-field">
+						<div class="item-title">类型</div>
+						<div class="item-content">{{type_text}}</div>
+					</div>
+				</div>
+				<div class="white-bg">
+					<div class="item" id="shouxin-field">
+						<div class="item-title">收信单位</div>
+						<div class="item-content">{{shouxin}}</div>
+					</div>
+				</div>
+				<div class="white-bg">
+					<div class="item" id="title-field">
+						<div class="item-title">标题</div>
+						<div class="item-content">{{title}}</div>
+					</div>
+				</div>
+				<div class="white-bg">
+					<div class="item" id="content-field">
+						<div class="item-title">内容</div>
+						<div id="content">{{content}}</div>
+					</div>
+				</div>
+				<div class="white-bg">
+					<div class="item" id="is_anonymous-field">
+						<div class="item-title">是否匿名</div>
+						<div class="item-content">{{is_anonymous_text}}</div>
+					</div>
+				</div>
+				<div class="white-bg">
+					<div class="item" id="is_pass-field">
+						<div class="item-title">是否通过</div>
+						<div class="item-content">{{is_pass_text}}</div>
+					</div>
+				</div>
+				<div class="white-bg">
+					<div class="item" id="status-field">
+						<div class="item-title">状态</div>
+						<div class="item-content">{{status_text}}</div>
+					</div>
+				</div>
+				<div v-if="status==2">
+					<div class="white-bg">
+						<div class="item" id="dafu-field">
+							<div class="item-title">答复单位</div>
+							<div class="item-content">{{dafu}}</div>
+						</div>
+					</div>
+					<div class="white-bg">
+						<div class="item" id="dafu_content-field">
+							<div class="item-title">答复内容</div>
+							<div id="dafu">{{dafu_content}}</div>
+						</div>
+					</div>
+					<div class="white-bg">
+						<div class="item" id="update_time">
+							<div class="item-title">答复时间</div>
+							<div class="item-content">{{update_time}}</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="footer">
+			<div class="friends">
+				<p>友情链接:</p>
+				<a :href="item.path" v-for="(item,i) in friends_list" :key="item.id">{{item.name}}</a>
+			</div>
+			<div class="zhuban">主办单位: {{zhuban}}</div>
+			<div class="chengban">承办单位: {{chengban}}</div>
+			<div class="addmob">地址: {{address}} 电话: {{mobile}}</div>
+		</div>
+		<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/suqiuCheck.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

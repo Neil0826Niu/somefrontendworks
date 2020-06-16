@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>服务推荐详情</title>
+		<script src="/mobile_web/js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/mobile_web/js/global.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/mobile_web/js/axios.min.js"></script>
+		<script src="/mobile_web/js/head.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../css/fwtjDetails.css" />
+	</head>
+	<body>
+		<div id="app">
+			<div class="head">
+				<a href="/mobile_web/fwtj/fwtj.html"><img src="../img/userHome/back.png"></a>
+				<div class="title">详情</div>
+			</div>
+			<div class="main">
+				<div class="top">
+					<div class="main-title">机构主页</div>
+					<div class="avatar"><img :src="qiyedata.logo"></div>
+					<div class="info">
+						<div class="name">公司名称：{{qiyedata.user_nickname}}</div>
+						<div class="url">公司官网：{{qiyedata.user_url}}</div>
+					</div>
+				</div>
+				<div class="signature">
+					<div class="sig_title">公司简介：</div>
+					<div class="sig_cont">{{qiyedata.signature}}</div>
+				</div>
+				<div class="fuwu" v-if="fuwu_list.length!=0">
+					<div class="fuwu_title">服务信息</div>
+					<div class="fuwu_list">
+						<a :href="'/mobile_web/qyfc/fuwuDetails.html?companyId='+id+'&fuwuId='+item.id" class="fuwu_item" v-for="item in  fuwu_list" :key="item.id">
+							<div class="fuwu_img"><img :src="item.img" ></div>
+							<div class="fuwu_item_title">{{item.title}}</div>
+							<div class="price">价格面议</div>
+							<div class="check">查看详情</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="friends">
+				<p>友情链接:</p>
+				<a :href="item.path" v-for="(item,i) in friends_list" :key="item.id">{{item.name}}</a>
+			</div>
+			<div class="zhuban">主办单位: {{zhuban}}</div>
+			<div class="chengban">承办单位: {{chengban}}</div>
+			<div class="addmob">地址: {{address}} 电话: {{mobile}}</div>
+		</div>
+		<script src="../js/fwtjDetails.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
+		
+	</body>
+</html>

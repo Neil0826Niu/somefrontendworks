@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>政策服务详情</title>
+		<script src="/mobile_web/js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/mobile_web/js/global.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/mobile_web/js/axios.min.js"></script>
+		<script src="/mobile_web/js/head.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../css/zcfwDetails.css" />
+	</head>
+	<body>
+		<div id="app">
+			<div class="head">
+				<a href="/mobile_web/zcfw/zcfw.html"><img src="../img/userHome/back.png"></a>
+				<div class="title">详情</div>
+			</div>
+			<div class="main">
+				<div class="content_title">{{data.title}}</div>
+				<div class="content_time">{{data.create_time}}</div>
+				<div class="content" v-html="data.content">{{data.content}}</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="friends">
+				<p>友情链接:</p>
+				<a :href="item.path" v-for="(item,i) in friends_list" :key="item.id">{{item.name}}</a>
+			</div>
+			<div class="zhuban">主办单位: {{zhuban}}</div>
+			<div class="chengban">承办单位: {{chengban}}</div>
+			<div class="addmob">地址: {{address}} 电话: {{mobile}}</div>
+		</div>
+		<script src="../js/zcfwDetails.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
+	
+	</body>
+</html>

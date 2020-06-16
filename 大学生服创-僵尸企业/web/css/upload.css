@@ -1,0 +1,184 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.background {
+    background: url(../img/背景.png) no-repeat;
+    background-size: cover;
+    min-height: 768px;
+    min-width: 1366px;
+}
+
+.header {
+    background: url(../img/导航栏.png)no-repeat;
+    min-height: 70px;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.gotologin {
+    float: right;
+    margin-right: 20px;
+}
+
+.login {
+    position: relative;
+    float: right;
+    top: 15px;
+    width: 400px;
+    height: 70px;
+}
+
+.userinf {
+    float: right;
+    margin-right: 20px;
+}
+
+.username {
+    font-size: 30px;
+    color: white;
+}
+
+.userinf button {
+    margin-left: 10px;
+    font-size: 30px;
+    color: white;
+    height: 40px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.userinf button:hover {
+    background: #8098c4;
+}
+
+.left, .folder, .right {
+    display: inline-block;
+}
+
+.left {
+    width: 450px;
+}
+
+.logo {
+    width: 305px;
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+.person {
+    margin-top: 95px;
+    margin-left: 20px;
+    height: 450px;
+}
+
+.folder {
+    background: url(../img/download/文件夹.png) no-repeat;
+    width: 415px;
+    height: 416px;
+    position: relative;
+    vertical-align: top;
+    margin-top: 115px;
+}
+
+.foldercover {
+    z-index: 3;
+    position: absolute;
+}
+
+.loadingcircle {
+    position: absolute;
+    z-index: 4;
+    left: 160px;
+    top: 270px;
+    animation: circle 1s infinite linear;
+    transform-origin: center center;
+}
+
+@keyframes circle {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+.right {
+    vertical-align: top;
+    margin-top: 25px;
+    width: 490px;
+    text-align: center;
+}
+
+
+.file {
+    width: 400px;
+    height: 50px;
+    background: #D0EEFF;
+    margin-bottom: 20px;
+    margin-left: 45px;
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: #1E88C7;
+    position: relative;
+    font-size:20px;
+    font-weight:500;
+    line-height: 10px;
+}
+.file input {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 400px;
+    height:50px;
+    opacity:0;
+    
+}
+.file:hover {
+    background: #AADFFD;
+    border-color: #78C3F3;
+    color: #004974;
+    text-decoration: none;
+}
+
+
+.upload button {
+    margin-top: 20px;
+    font-size: 30px;
+    font-weight:500;
+    color: #526cde;
+    background: #a9e9f5;
+    height: 50px;
+    width: 150px;
+    cursor: pointer;
+    border-color: violet;
+    border-radius: 25px;
+    outline: none;
+}
+
+.upload button:hover {
+    background: #8098c4;
+}
+textarea::-webkit-input-placeholder {
+    font-size: 20px;
+}
+
+input::-webkit-input-placeholder {
+    font-size: 20px;
+}
+
+img {
+    -webkit-user-drag: none;
+}
+
+a {
+    -webkit-user-drag: none;
+}

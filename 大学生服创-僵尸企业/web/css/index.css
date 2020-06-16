@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.background {
+    background: url(../img/背景.png) no-repeat;
+    background-size:cover;
+    min-height: 768px;
+    min-width: 1366px;
+}
+
+.header {
+    background: url(../img/导航栏.png)no-repeat;
+    min-height: 70px;
+    min-width: 1366px;
+    background-size: cover;
+}
+.gotologin{
+    float: right;
+    margin-right: 20px;
+}
+.login {
+    position: relative;
+    float: right;
+    top: 15px;
+    width: 400px;
+    height: 70px;
+}
+.userinf{
+    float: right;
+    margin-right: 20px;
+}
+.username{
+    font-size: 30px;
+    color: white;
+}
+.userinf button{
+    margin-left: 10px;
+    font-size: 30px;
+    color: white;
+    height: 40px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    
+}
+.userinf button:hover {
+    background:#8098c4;
+}
+.middle{
+    
+    margin: 100px auto;
+    width: 573px;
+}
+.upload{
+    text-align: center;
+}
+.uploadbtn{
+    margin-top: 50px;
+    cursor: pointer;
+}
+
+
+
+textarea::-webkit-input-placeholder {
+    font-size: 20px;
+}
+
+input::-webkit-input-placeholder {
+    font-size: 20px;
+}
+
+img {
+    -webkit-user-drag: none;
+}
+a {
+    -webkit-user-drag: none;
+}

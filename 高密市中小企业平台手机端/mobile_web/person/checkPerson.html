@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>查看认证</title>
+		<script src="/mobile_web/js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/mobile_web/js/global.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/mobile_web/js/axios.min.js"></script>
+		<script src="../js/personhead.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../css/checkPerson.css" />
+	</head>
+	<body>
+		<div id="app">
+			<div class="head">
+				<a href="/mobile_web/person/person.html"><img src="../img/userHome/back.png"></a>
+				<div class="title">查看认证</div>
+			</div>
+
+			<div class="main">
+					<div class="white-bg">
+						<div class="item" id="name-field">
+							<div class="item-title">姓名</div>
+							<div class="item-content">{{user_name}}</div>
+
+						</div>
+					</div>
+					<div class="white-bg">
+						<div class="item" id="sex-field">
+							<div class="item-title">性别</div>
+							<div class="item-content">{{sex}}</div>
+						</div>
+					</div>
+					<div class="white-bg">
+						<div class="item" id="birth-field">
+							<div class="item-title">出生日期</div>
+							<div class="item-content">{{birthday}}</div>
+						</div>
+					</div>
+					<div class="white-bg">
+						<div class="item" id="id-field">
+							<div class="item-title">身份证号</div>
+							<div class="item-content">{{idcard}}</div>
+						</div>
+					</div>
+					<div class="white-bg">
+						<div class="file-item" id="file-field">
+							<div class="item-title">资料上传</div>
+							<img class="img1" :src="idcard_img1">
+							<img class="img2" :src="idcard_img2">
+							<div class="text1">身份证正面</div>
+							<div class="text2">身份证反面</div>
+						</div>
+					</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="friends">
+				<p>友情链接:</p>
+				<a :href="item.path" v-for="(item,i) in friends_list" :key="item.id">{{item.name}}</a>
+			</div>
+			<div class="zhuban">主办单位: {{zhuban}}</div>
+			<div class="chengban">承办单位: {{chengban}}</div>
+			<div class="addmob">地址: {{address}} 电话: {{mobile}}</div>
+		</div>
+		<script src="../js/checkPerson.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

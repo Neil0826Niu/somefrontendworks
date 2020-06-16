@@ -1,0 +1,203 @@
+@font-face {
+	font-family: 'HYe4gj';
+	src: url('/mobile_web/ttf/HYYCT.ttf');
+}
+
+@font-face {
+	font-family: 'PingFang SC';
+	src: url('/mobile_web/ttf/PingFang.otf');
+}
+
+@font-face {
+	font-family: 'Microsoft YaHei';
+	src: url('/mobile_web/ttf/YaHei.ttf');
+}
+
+@font-face {
+	font-family: 'SourceHanSansSC';
+	src: url('/mobile_web/ttf/SourceHanSansSC-Medium.otf');
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #F7F4F8;
+}
+
+a {
+	text-decoration: none;
+}
+
+
+.footer {
+	margin-top: 0.68rem;
+	width: 100%;
+}
+
+.friends {
+	font-size: 0.2rem;
+	width: 100%;
+	height: 0.76rem;
+	background: rgba(0, 85, 168, 1);
+}
+
+.friends p {
+	margin-left: 0.1rem;
+}
+
+.friends * {
+	padding: 0.25rem 0.1rem;
+	margin: 0;
+	display: inline-block;
+	font-size: 0.2rem;
+	font-family: PingFang SC;
+	font-weight: 500;
+	color: rgba(255, 255, 255, 1);
+}
+
+.zhuban {
+	margin-top: 0.25rem;
+	width: 100%;
+	text-align: center;
+	font-size: 0.2rem;
+	font-family: PingFang SC;
+	font-weight: 500;
+	color: rgba(26, 26, 26, 1);
+}
+
+.chengban {
+	margin-top: 0.15rem;
+	width: 100%;
+	text-align: center;
+	font-size: 0.2rem;
+	font-family: PingFang SC;
+	font-weight: 500;
+	color: rgba(26, 26, 26, 1);
+}
+
+.addmob {
+	width: 100%;
+	text-align: center;
+	margin-top: 0.15rem;
+	margin-bottom: 0.25rem;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 0.2rem;
+	font-family: PingFang SC;
+	font-weight: 500;
+	color: rgba(26, 26, 26, 1);
+}
+
+.head {
+	position: relative;
+	background-color: white;
+	padding: 0.26rem 0;
+}
+
+.head a {
+	position: absolute;
+	font-size: 0.28rem;
+	padding: 0.08rem 0.2rem;
+}
+
+.head a img {
+	height: 0.36rem;
+}
+
+.title {
+	width: 100%;
+	text-align: center;
+	font-size: 0.38rem;
+	font-family: PingFang SC;
+	font-weight: bold;
+	color: rgba(3, 3, 3, 1);
+}
+
+
+.main {
+	margin-top: 0.16rem;
+	min-height: 9.8rem;
+}
+
+.white-bg {
+	background: rgba(255, 255, 255, 1);
+	display: block;
+}
+
+.item {
+	position: relative;
+	width: 90%;
+	margin: 0 auto;
+	height: 1.68rem;
+	border-bottom: 0.025rem solid #F7F4F8 !important;
+}
+
+.item-title {
+	max-width: 2rem;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	position: absolute;
+	top: 0.36rem;
+	font-size: 0.3rem;
+	font-family: PingFang SC;
+	font-weight: 500;
+	color: rgba(26, 26, 26, 1);
+}
+
+.time {
+	position: absolute;
+	top: 1.05rem;
+	font-size: 0.28rem;
+	font-family: PingFang SC;
+	font-weight: 500;
+	color: rgba(128, 128, 128, 1);
+}
+.is_pass{
+	position: absolute;
+	top:  0.36rem;
+	left:2.25rem;
+	font-size:0.3rem;
+	font-family:PingFang SC;
+	font-weight:500;
+	color:rgba(128,128,128,1);
+}
+.status{
+	position: absolute;
+	top: 0.36rem;
+	left: 3.46rem;
+	font-size:0.3rem;
+	font-family:PingFang SC;
+	font-weight:500;
+	color:rgba(128,128,128,1);
+}
+.check {
+	font-size:0.28rem;
+	font-family:PingFang SC;
+	font-weight:500;
+	color:rgba(53,142,229,1);
+	height:0.38rem;
+	position: absolute;
+	top: 0.52rem;
+	padding-top: 0.13rem;
+	padding-bottom: 0.13rem;
+	right: 0;
+	padding-left: 0.24rem;
+	border-left:0.03rem solid rgba(245,245,245,1);
+}
+.page{
+	text-align: center;
+	font-size: 0.28rem;
+	padding: 0.2rem 0;
+	width: 90%;
+	margin: 0 auto;
+}
+.page *{
+	vertical-align: top;
+	padding: 0.2rem 0.2rem;
+	display: inline-block;
+	font-size:0.28rem;
+	font-family:PingFang SC;
+	font-weight:500;
+	color:rgba(51,51,51,1);
+}

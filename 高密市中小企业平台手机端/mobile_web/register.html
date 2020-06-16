@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>注册</title>
+		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/global.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/axios.min.js"></script>
+		<script src="js/head.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/register.css" />
+	</head>
+	<body>
+		<div class="top">
+			<div class="toparea">
+				<a class="index" href="/mobile_web/index.html">
+					<div class="logo"><img src="img/nav/logo@3x.png"></div>
+					<div class="logoname">高密市中小企业公共服务平台</div>
+				</a>
+				<div class="topright">
+					<a class="search" href="/mobile_web/qysq/qysq.html"><img src="img/nav/nav_search_icon@3x.png"></a>
+					<a class="user" href="/mobile_web/login.html"><img src="img/nav/nav_user_icon@3x.png"></a>
+				</div>
+			</div>
+			<div class="selectbar">
+				<a class="select" href="/mobile_web/index.html">首页</a>
+				<a class="select"  href="/mobile_web/qysq/qysq.html">企业诉求</a>
+				<a class="select" href="/mobile_web/zxjs/zxjs.html">中心介绍</a>
+				<a class="select" href="/mobile_web/zcfw/zcfw.html">政策服务</a>
+				<a class="select" href="/mobile_web/fwtj/fwtj.html">服务推荐</a>
+				<a class="select" href="/mobile_web/qzzp/qzzp.html">求职招聘</a>
+				<a class="select" href="/mobile_web/qyfc/qyfc.html">企业风采</a>
+			</div>
+		</div>
+		<div class="main">
+			<div class="register-title">快速注册</div>
+			<div class="mobile">
+				<div class="title">手机号：</div>
+				<input type="tel" name="mobile-input" id="mobile-input" v-model="username" placeholder="输入您的手机号，用于登录和找回密码" />
+			</div>
+			<div class="code">
+				<div class="title">验证码：</div>
+				<input type="text" name="code-input" id="code-input" v-model="code" placeholder="输入短信验证码" />
+				<div class="getcode" @click="getCode()" v-if="firstGetCode">获取验证码</div>
+				<div class="gotcode" v-else-if="sec>0" >已发送({{sec}}s)</div>
+				<div class="getcode" @click="getCode()" v-else >重新获取</div>
+			</div>
+			<div class="password">
+				<div class="title">密码：</div>
+				<input type="password" name="password-input" id="password-input" v-model="password" placeholder="请输入密码" />
+			</div>
+			<div class="repass">
+				<div class="title">确认密码：</div>
+				<input type="password" name="repass-input" id="repass-input" v-model="repassword" placeholder="请确认密码" />
+			</div>
+			<div class="register" @click="register()">立即注册</div>
+			<a class="login" href="/mobile_web/login.html">已有账号，去登陆</a>
+		</div>
+		<div class="footer">
+			<div class="friends">
+				<p>友情链接:</p>
+				<a :href="item.path" v-for="(item,i) in friends_list" :key="item.id">{{item.name}}</a>
+			</div>
+			<div class="zhuban">主办单位: {{zhuban}}</div>
+			<div class="chengban">承办单位: {{chengban}}</div>
+			<div class="addmob">地址: {{address}} 电话: {{mobile}}</div>
+		</div>
+		<script src="js/footer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/register.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

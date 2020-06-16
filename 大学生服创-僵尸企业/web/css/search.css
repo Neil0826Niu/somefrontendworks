@@ -1,0 +1,135 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.background {
+    background: url(../img/背景.png) no-repeat;
+    background-size: cover;
+    min-height: 768px;
+    min-width: 1366px;
+}
+
+.header {
+    background: url(../img/导航栏.png)no-repeat;
+    min-height: 70px;
+    min-width: 1366px;
+    background-size: cover;
+}
+
+.login {
+    position: relative;
+    float: right;
+    top: 15px;
+    width: 200px;
+}
+
+.search {
+    padding: 15px 0px;
+    margin-left: 50px;
+    width: 1070px;
+    height: 60px;
+}
+
+.searchbar {
+    float: right;
+    margin-top: 3px;
+    margin-right: 80px;
+    background: url(../img/搜索框1.png) no-repeat;
+    height: 50px;
+}
+
+#singlein {
+    height: 50px;
+    width: 530px;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 25px;
+    padding: 0px 15px;
+    position: relative;
+    top: -15px;
+}
+
+.singlebtn {
+    width: 55px;
+    height: 47px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.resultlist {
+    width: 1070px;
+    height: auto;
+    margin-left: 50px;
+}
+
+.result {
+    width: 1045px;
+    height: 130px;
+    background: white;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.result .r-left {
+    float: left;
+    margin-left: 170px;
+}
+.r-left *{
+    margin-right: 20px;
+}
+.result .r-right {
+    float: right;
+}
+.r-right *{
+    margin-right: 20px;
+}
+.collect{
+    width: 100px;
+}
+.name {
+    padding-top: 14px;
+    margin-left: 170px;
+    font-size: 36px;
+    height: 75px;
+    color: #6a8cc6;
+}
+
+#result1 {
+    background: url(../img/康师傅.png) no-repeat;
+}
+
+.right {
+    float: right;
+    width: 235px;
+    position: relative;
+    right: 15px;
+    top: 50px;
+}
+
+.ad {
+    padding-bottom: 30px;
+}
+
+button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    margin-right: 5px;
+}
+
+input::-webkit-input-placeholder {
+    font-size: 20px;
+}
+
+img {
+    -webkit-user-drag: none;
+}
+
+a {
+    -webkit-user-drag: none;
+}

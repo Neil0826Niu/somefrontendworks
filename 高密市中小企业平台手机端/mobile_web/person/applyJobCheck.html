@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>查看应聘</title>
+		<script src="/mobile_web/js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/mobile_web/js/global.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/mobile_web/js/axios.min.js"></script>
+		<script src="/mobile_web/js/jquery-3.4.1.min.js"></script>
+		<script src="../js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/personhead.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../css/appleJobCheck.css" />
+	</head>
+	<body>
+		<div id="app">
+			<div class="head">
+				<a href="/mobile_web/person/applyJobManage.html"><img src="../img/userHome/back.png"></a>
+				<div class="title">查看应聘</div>
+			</div>
+
+			<div class="main">
+				<div class="white-bg">
+					<div class="item" id="type-field">
+						<div class="item-title">行业</div>
+						<div class="item-content">{{type}}</div>
+					</div>
+				</div>
+				<div class="white-bg">
+					<div class="item" id="name-field">
+						<div class="item-title">应聘名称</div>
+						<div class="item-content">{{name}}</div>
+					</div>
+				</div>
+				<div class="white-bg">
+					<div class="item" id="pay-field">
+						<div class="item-title">薪资待遇</div>
+						<div class="item-content">{{pay}}</div>
+					</div>
+				</div>
+				<div class="white-bg">
+					<div class="item" id="address-field">
+						<div class="item-title">工作地点</div>
+						<div class="item-content">{{address}}</div>
+					</div>
+				</div>
+				<div class="white-bg">
+					<div class="item" id="years-field">
+						<div class="item-title">工作年限</div>
+						<div class="item-content">{{years}}</div>
+					</div>
+				</div>
+				<div class="white-bg">
+					<div class="item" id="study-field">
+						<div class="item-title">学历要求</div>
+						<div class="item-content">{{study}}</div>
+					</div>
+				</div>
+				
+				<div class="white-bg">
+					<div class="item" id="duty-field">
+						<div class="item-title">岗位职责</div>
+						<div  id="duty">{{duty}}</div>
+					</div>
+				</div>
+				<div class="white-bg">
+					<div class="item" id="requirement-field">
+						<div class="item-title">能力要求</div>
+						<div  id="requirement">{{requirement}}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="friends">
+				<p>友情链接:</p>
+				<a :href="item.path" v-for="(item,i) in friends_list" :key="item.id">{{item.name}}</a>
+			</div>
+			<div class="zhuban">主办单位: {{zhuban}}</div>
+			<div class="chengban">承办单位: {{chengban}}</div>
+			<div class="addmob">地址: {{address}} 电话: {{mobile}}</div>
+		</div>
+		<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/applyJobCheck.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

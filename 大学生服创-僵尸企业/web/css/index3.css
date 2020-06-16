@@ -1,0 +1,172 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.background {
+    background: url(../img/背景.png) no-repeat;
+    background-size:cover;
+    min-height: 768px;
+    min-width: 1366px;
+}
+
+.header {
+    background: url(../img/导航栏.png)no-repeat;
+    min-height: 70px;
+    min-width: 1366px;
+    background-size: cover;
+}
+.gotologin{
+    float: right;
+    margin-right: 20px;
+}
+.login {
+    position: relative;
+    float: right;
+    top: 15px;
+    width: 400px;
+    height: 70px;
+}
+.userinf{
+    float: right;
+    margin-right: 20px;
+}
+.username{
+    font-size: 30px;
+    color: white;
+}
+.userinf button{
+    margin-left: 10px;
+    font-size: 30px;
+    color: white;
+    height: 40px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    
+}
+.userinf button:hover {
+    background:#8098c4;
+}
+
+.search {
+    position: relative;
+    top: 100px;
+    margin: 0 auto;
+    width: 600px;
+    height: 500px;
+}
+
+.searchbar {
+    position: relative;
+    top: 30px;
+    left: -25px;
+}
+
+.selection {
+    margin: 0px;
+    padding: 0;
+    position: absolute;
+    z-index: 3;
+}
+
+#singleimg {
+    cursor: pointer;
+}
+
+#manyimg {
+    position: relative;
+    left: -17px;
+    cursor: pointer;
+}
+
+.input {
+    overflow: hidden;
+    height: 300px;
+    position: absolute;
+    top: 55px;
+    left: 0.5px;
+    z-index: 2;
+}
+
+.menu {
+    height: 170px;
+    width: 650px;
+}
+
+#singlemenu {
+    background: url(../img/搜索框1.png) no-repeat;
+}
+
+#singlein {
+    position: relative;
+    top: 2px;
+    height: 42px;
+    width: 540px;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 25px;
+    padding: 0px 10px;
+}
+
+.singlebtn {
+    position: absolute;
+    top: 2px;
+    left: 565px;
+    width: 55px;
+    height: 45px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.hot {
+    position: relative;
+    top: 10px;
+}
+
+#manymenu {
+    background: url(../img/搜索框2.png) no-repeat;
+}
+
+#manyin {
+    position: relative;
+    top: 2px;
+    height: 150px;
+    width: 535px;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 25px;
+    padding: 5px 10px;
+    resize: none;
+}
+
+.manybtn {
+    position: relative;
+    top: -105px;
+    width: 55px;
+    height: 40px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+textarea::-webkit-input-placeholder {
+    font-size: 20px;
+}
+
+input::-webkit-input-placeholder {
+    font-size: 20px;
+}
+
+img {
+    -webkit-user-drag: none;
+}
+a {
+    -webkit-user-drag: none;
+}

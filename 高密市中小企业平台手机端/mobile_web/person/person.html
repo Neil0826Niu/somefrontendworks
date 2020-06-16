@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>个人中心</title>
+		<script src="/mobile_web/js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/mobile_web/js/global.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/mobile_web/js/axios.min.js"></script>
+		<script src="../js/personhead.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="/mobile_web//css/person.css" />
+	</head>
+	<body>
+		<div class="background">
+			<div class="main">
+				<div class="head">
+					<a href="/mobile_web/index.html"><img src="/mobile_web//img/userHome/back.png"></a>
+					<div class="person-title">个人中心</div>
+				</div>
+				<a class="info" href="/mobile_web/person/personInfo.html">
+					<img class="ava" :src="avatar">
+					<div class="infotext">
+						<div class="username">用户账户：{{mobile}}</div>
+						<div :class="'type'+type">{{status}}</div>
+					</div>
+					<img class="go_img" src="/mobile_web//img/userHome/go.png">
+				</a>
+				<div class="item" v-if="type==0">
+					<a class="geren" href="/mobile_web/person/personExamine.html">
+						<div class="title">个人认证</div>
+						<img src="/mobile_web//img/userHome/go.png">
+					</a>
+					<a class="qiye" href="/mobile_web/person/companyExamine.html">
+						<div class="title">企业认证</div>
+						<img src="/mobile_web//img/userHome/go.png">
+					</a>
+					<a class="jigou" href="/mobile_web/person/jigouExamine.html">
+						<div class="title">机构认证</div>
+						<img src="/mobile_web//img/userHome/go.png">
+					</a>
+					<a class="change-password" href="/mobile_web/person/resetPassword.html">
+						<div class="title">修改密码</div>
+						<img src="/mobile_web//img/userHome/go.png">
+					</a>
+					<a class="change-password" @click="logout()">
+						<div class="title">退出登录</div>
+						<img src="/mobile_web//img/userHome/go.png">
+					</a>
+				</div>
+				<div class="item" v-else-if="type==1">
+					<a class="qiuzhi" href="/mobile_web/person/findJobManage.html">
+						<div class="title">求职管理</div>
+						<img src="/mobile_web//img/userHome/go.png">
+					</a>
+					<a class="yingpin" href="/mobile_web/person/applyJobManage.html">
+						<div class="title">应聘管理</div>
+						<img src="/mobile_web//img/userHome/go.png">
+					</a>
+					<a class="renzheng" href="/mobile_web/person/checkPerson.html">
+						<div class="title">查看认证</div>
+						<img src="/mobile_web//img/userHome/go.png">
+					</a>
+					<a class="change-password" href="/mobile_web/person/resetPassword.html">
+						<div class="title">修改密码</div>
+						<img src="/mobile_web//img/userHome/go.png">
+					</a>
+					<a class="change-password" @click="logout()">
+						<div class="title">退出登录</div>
+						<img src="/mobile_web//img/userHome/go.png">
+					</a>
+				</div>
+				<div class="item" v-else-if="type==2||type==3">
+					<a class="suqiu" href="/mobile_web/person/suqiuManage.html">
+						<div class="title">诉求管理</div>
+						<img src="/mobile_web//img/userHome/go.png">
+					</a>
+					<a class="zhaopin" href="/mobile_web/person/zhaopinManage.html">
+						<div class="title">招聘管理</div>
+						<img src="/mobile_web//img/userHome/go.png">
+					</a>
+					<a class="fuwu" href="/mobile_web/person/fuwuManage.html">
+						<div class="title">服务管理</div>
+						<img src="/mobile_web//img/userHome/go.png">
+					</a>
+					<a class="renzheng" @click="check()">
+						<div class="title">查看认证</div>
+						<img src="/mobile_web//img/userHome/go.png">
+					</a>
+					<a class="change-password" href="/mobile_web/person/resetPassword.html">
+						<div class="title">修改密码</div>
+						<img src="/mobile_web//img/userHome/go.png">
+					</a>
+					<a class="change-password" @click="logout()">
+						<div class="title">退出登录</div>
+						<img src="/mobile_web//img/userHome/go.png">
+					</a>
+				</div>
+				<div class="item" v-else>
+					<a class="change-password" @click="logout()">
+						<div class="title">退出登录</div>
+						<img src="/mobile_web//img/userHome/go.png">
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="friends">
+				<p>友情链接:</p>
+				<a :href="item.path" v-for="(item,i) in friends_list" :key="item.id">{{item.name}}</a>
+			</div>
+			<div class="zhuban">主办单位: {{zhuban}}</div>
+			<div class="chengban">承办单位: {{chengban}}</div>
+			<div class="addmob">地址: {{address}} 电话: {{mobile}}</div>
+		</div>
+		<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/person.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

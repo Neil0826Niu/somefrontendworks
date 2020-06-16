@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>高密市中小企业公共服务平台手机端</title>
+		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/global.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/axios.min.js"></script>
+		<script src="js/head.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+	</head>
+	<body>
+		<div class="top">
+			<div class="toparea">
+				<a class="index" href="/mobile_web/index.html">
+					<div class="logo"><img src="img/nav/logo@3x.png"></div>
+					<div class="logoname">高密市中小企业公共服务平台</div>
+				</a>
+
+				<div class="topright">
+					<a class="search" href="/mobile_web/qysq/qysq.html"><img src="img/nav/nav_search_icon@3x.png"></a>
+					<a class="user" :href="jump"><img src="img/nav/nav_user_icon@3x.png"></a>
+				</div>
+			</div>
+			<div class="selectbar">
+				<a class="selected" href="../mobile_web/index.html">首页</a>
+				<a class="select"  href="../mobile_web/qysq/qysq.html">企业诉求</a>
+				<a class="select" href="../mobile_web/zxjs/zxjs.html">中心介绍</a>
+				<a class="select" href="../mobile_web/zcfw/zcfw.html">政策服务</a>
+				<a class="select" href="../mobile_web/fwtj/fwtj.html">服务推荐</a>
+				<a class="select" href="../mobile_web/qzzp/qzzp.html">求职招聘</a>
+				<a class="select" href="../mobile_web/qyfc/qyfc.html">企业风采</a>
+			</div>
+		</div>
+		<div class="main">
+			<div class="swiper">
+				<div class="swiper-container">
+					<div class="swiper-wrapper" id="app">
+						<div class="swiper-slide" v-for="(item, i) in lists" :key="item.id">
+							<a :href="'/mobile_web/zcfw/zcfwDetails.html?id='+item.id">
+								<img :src="item.path">
+								<!-- <div v-html="item.content">
+									{{item.content}}
+								</div> -->
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="swiper-bottom"></div>
+				<div class="swiper-title" id="newid">新闻通知公告内容</div>
+				<div class="swiper-pagination"></div>
+			</div>
+			<div class="news">
+				<div class="news-sel">
+					<span :class="zcfgclass" @click="clickB()">政策法规</span>
+					<span :class="tzggclass" @click="clickC()">通知公告</span>
+					<span :class="gzdtclass" @click="clickA()">工作动态</span>
+					<a href="/mobile_web/zcfw/zcfw.html?sel=0" class="more" v-if="displaytype=='A'">
+						<div class="moregzdt">更多+</div>
+					</a>
+					<a href="/mobile_web/zcfw/zcfw.html?sel=1" class="more" v-else-if="displaytype=='B'">
+						<div class="morezcfg">更多+</div>
+					</a>
+					<a href="/mobile_web/zcfw/zcfw.html?sel=2" class="more" v-else-if="displaytype=='C'">
+						<div class="moretzgg">更多+</div>
+					</a>
+				</div>
+				<div class="gzdt" v-if="displaytype=='A'">
+					<div class="news-item" v-for="(item,i) in gzdt_lists" :key="item.id">
+						<a :href="'/mobile_web/zcfw/zcfwDetails.html?id='+item.id" class="news-title">{{item.title}}</a>
+						<div class="news-time">{{item.time}}</div>
+					</div>
+				</div>
+				<div class="zcfg" v-else-if="displaytype=='B'">
+					<div class="news-item" v-for="(item,i) in zcfg_lists" :key="item.id">
+						<a :href="'/mobile_web/zcfw/zcfwDetails.html?id='+item.id" class="news-title">{{item.title}}</a>
+						<div class="news-time">{{item.time}}</div>
+					</div>
+				</div>
+				<div class="tzgg" v-else-if="displaytype=='C'">
+					<div class="news-item" v-for="(item,i) in tzgg_lists" :key="item.id">
+						<a :href="'/mobile_web/zcfw/zcfwDetails.html?id='+item.id" class="news-title">{{item.title}}</a>
+						<div class="news-time">{{item.time}}</div>
+					</div>
+				</div>
+			</div>
+			<div class="fwdt">
+				<div class="parthead">
+					<div class="headcn">服务大厅</div>
+					<div class="headbtm"></div>
+				</div>
+				<div class="fwdtmain">
+					<a v-for="item in fuwu_lists" :key="item.id" :href="'/mobile_web/fwtj/fwtj.html?id='+item.id"><img :src="item.path"></a>
+				</div>
+				<a class="partmore" href="/mobile_web/fwtj/fwtj.html"><img src="img/home/home_more_button@3x.png" style="width:3.42rem;height:0.88rem;"></a>
+			</div>
+			<div class="tjjg">
+				<div class="parthead">
+					<div class="headcn">推荐机构</div>
+					<div class="headbtm"></div>
+				</div>
+				<div class="tjjgmain">
+					<div class="tjjg_item" v-for="(item,i) in tjjg_lists" :key="item.id">
+						<a :href="'/mobile_web/fwtj/fwtjDetails.html?id='+item.id"><img class="tjjg_avatar" :src="item.logo"></a>
+						<div class="tjjg_name">{{item.user_nickname}}</div>
+					</div>
+				</div>
+				<a class="partmore" href="/mobile_web/fwtj/fwtj.html"><img src="img/home/home_more_button@3x.png" style="width:3.42rem;height:0.88rem;"></a>
+			</div>
+			<div class="qyfc">
+				<div class="parthead">
+					<div class="headcn">企业风采</div>
+					<div class="headbtm"></div>
+				</div>
+				<div class="qyfcmain">
+					<div class="qyfc_item" v-for="(item,i) in qyfc_lists" :key="item.id">
+						<a :href="'/mobile_web/qyfc/qyfcDetails.html?id='+item.id"><img class="qyfc_avatar" :src="item.avatar"></a>
+						<div class="qyfc_name">{{item.user_nickname}}</div>
+					</div>
+				</div>
+				<a class="partmore" href="/mobile_web/qyfc/qyfc.html"><img src="img/home/home_more_button@3x.png" style="width:3.42rem;height:0.88rem;"></a>
+			</div>
+			<div class="zpxx">
+				<div class="parthead">
+					<div class="headcn">招聘信息</div>
+					<div class="headbtm"></div>
+				</div>
+				<div class="zpxxmain">
+					<a class="zpxx_item" :href="'/mobile_web/qzzp/zpDetails.html?id='+item.id" v-for="(item,i) in zpxx_lists" :key="item.id">
+						<div class="zpname">{{item.name}}</div>
+						<div class="zpadd">{{item.address}}</div>
+						<div class="zpusername">{{item.user_nickname}}</div>
+						<img src="img/home/home_user_icon_norml@2x.png">
+						<div class="zppay">{{item.pay}}</div>
+					</a>
+				</div>
+				<a class="partmore" href="/mobile_web/qzzp/qzzp.html?sel=zhaopin"><img src="img/home/home_more_button@3x.png" style="width:3.42rem;height:0.88rem;"></a>
+			</div>
+			<div class="qzxx">
+				<div class="parthead">
+					<div class="headcn">求职信息</div>
+					<div class="headbtm"></div>
+				</div>
+				<div class="qzxxmain">
+					<a class="qzxx_item" :href="'/mobile_web/qzzp/qzDetails.html?id='+item.id" v-for="(item,i) in qzxx_lists" :key="item.id">
+						<div class="qzname">{{item.name}}</div>
+						<div class="qzinfo">{{item.sex}} {{item.study}} {{item.years}}</div>
+						<div class="qzusername">{{item.user_nickname}}</div>
+						<img src="img/home/home_user_icon_norml@2x.png">
+						<div class="qzpay">{{item.pay}}</div>
+					</a>
+				</div>
+				<a class="partmore" href="/mobile_web/qzzp/qzzp.html?sel=qiuzhi"><img src="img/home/home_more_button@3x.png" style="width:3.42rem;height:0.88rem;"></a>
+			</div>
+			<div class="qysq">
+				<div class="parthead">
+					<div class="headcn">企业诉求</div>
+					<div class="headbtm"></div>
+				</div>
+				<div class="qysqmain">
+					<a class="qysq_item" v-for="(item,i) in qysq_lists" :key="item.id" 
+					:href="'/mobile_web/qysq/qysqDetails.html?id='+item.id">
+						<div class="sqtitle">{{item.title}}</div>
+						<div class="sqzixun">{{item.type}}</div>
+						<div class="sqshouxin">{{item.shouxin}}</div>
+						<div class="sqstatus">{{item.status}}</div>
+						<div class="sqtime">{{item.update_time}}</div>
+					</a>
+				</div>
+				<a class="partmore" href="/mobile_web/qysq/qysq.html"><img src="img/home/home_more_button@3x.png" style="width:3.42rem;height:0.88rem;"></a>
+			</div>
+			<div class="footer">
+				<div class="friends">
+					<p>友情链接:</p>
+					<a :href="item.path" v-for="(item,i) in friends_list" :key="item.id">{{item.name}}</a>
+				</div>
+				<div class="zhuban">主办单位: {{zhuban}}</div>
+				<div class="chengban">承办单位: {{chengban}}</div>
+				<div class="addmob">地址: {{address}} 电话: {{mobile}}</div>
+			</div>
+		</div>
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/footer.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

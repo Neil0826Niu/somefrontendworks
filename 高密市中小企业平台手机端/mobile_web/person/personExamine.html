@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>个人认证</title>
+		<script src="/mobile_web/js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/mobile_web/js/global.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/mobile_web/js/axios.min.js"></script>
+		<script src="/mobile_web/js/jquery-3.4.1.min.js"></script>
+		<script src="../js/personhead.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../css/personExamine.css" />
+	</head>
+	<body>
+		<div id="app">
+			<div class="head">
+				<a href="/mobile_web/person/person.html"><img src="../img/userHome/back.png"></a>
+				<div class="title">个人认证</div>
+				<div class="submit" @click="Examine()" v-if="code==0">认证</div>
+				<div class="submit" @click="ReExamine()" v-if="code==1&&status==2">重新提交</div>
+			</div>
+
+			<div class="main">
+				<div class="white-bg">
+					<div class="progress">
+						<img class="pro-img" v-if="code==0" src="../img/userHome/userHome_progress_one@2x.png">
+						<img class="pro-img" v-if="code==1&&status==0" src="../img/userHome/userHome_progress_two@2x.png">
+						<img class="pro-img" v-if="code==1&&(status==1||status==2)" src="../img/userHome/userHome_progress_three@2x.png">
+						<div class="success" id="pro1">编辑/提交信息</div>
+						<div :class="pro2class" id="pro2">等待审核</div>
+						<div :class="pro3class" id="pro3">审核结果</div>
+					</div>
+				</div>
+				<div class="mainpro1" v-if="code==0">
+					<div class="white-bg">
+						<div class="item" id="name-field">
+							<div class="item-title">姓名</div>
+							<input type="text" name="user_name" id="user_name" v-model="user_name" placeholder="请输入名字" />
+						</div>
+					</div>
+					<div class="white-bg">
+						<div class="item" id="sex-field">
+							<div class="item-title">性别</div>
+							<select id="sex-sel" v-model="sex" >
+								<option value="0">男</option>
+								<option value="1">女</option>
+							</select>
+							<img class="go-img" src="../img/userHome/go.png">
+						</div>
+					</div>
+					<div class="white-bg">
+						<div class="item" id="birth-field">
+							<div class="item-title">出生日期</div>
+							<input type="text" name="birthday" id="birthday" v-model="birthday" placeholder="格式 2018-01-01" />
+						</div>
+					</div>
+					<div class="white-bg">
+						<div class="item" id="id-field">
+							<div class="item-title">身份证号</div>
+							<input type="text" name="idcard" id="idcard" v-model="idcard" maxlength="18" placeholder="请输入身份证号" />
+						</div>
+					</div>
+					<div class="white-bg">
+						<div class="file-item" id="file-field">
+							<div class="item-title">资料上传</div>
+							<img class="img1" :src="img1" v-if="img1!=''">
+							<img class="img2" :src="img2" v-if="img2!=''">
+							<img class="jia1" src="../img/userHome/jia.png">
+							<img class="jia2" src="../img/userHome/jia.png">
+							<img class="kuang1" src="../img/userHome/userHome_resume@2x.png">
+							<img class="kuang2" src="../img/userHome/userHome_resume@2x.png">
+							<input type="file" accept="image/*" name="idcard_img1" id="idcard_img1" @change="updateId1()" />
+							<input type="file" accept="image/*" name="idcard_img2" id="idcard_img2" @change="updateId2()" />
+							<div class="text1">身份证正面</div>
+							<div class="text2">身份证反面</div>
+						</div>
+					</div>
+				</div>
+				<div class="mainpro2" v-if="code==1&&status==0">等待审核中...</div>
+				<div class="mainpro3" v-if="code==1&&(status==1||status==2)">
+					<div class="exam-fail" v-if="code==1&&status==2">审核不通过，可以重新提交。</div>
+					<div class="exam-succ" v-if="code==1&&status==1">
+						<img src="../img/userHome/userHome_adopt_icon@2x.png">
+						<div>审核通过</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="friends">
+				<p>友情链接:</p>
+				<a :href="item.path" v-for="(item,i) in friends_list" :key="item.id">{{item.name}}</a>
+			</div>
+			<div class="zhuban">主办单位: {{zhuban}}</div>
+			<div class="chengban">承办单位: {{chengban}}</div>
+			<div class="addmob">地址: {{address}} 电话: {{mobile}}</div>
+		</div>
+		<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/personExamine.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

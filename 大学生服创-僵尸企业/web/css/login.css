@@ -1,0 +1,157 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.background {
+    background: url(../img/背景.png) no-repeat;
+    background-size: 100%;
+    min-height: 768px;
+    min-width: 1366px;
+}
+
+.back {
+    height: 80px;
+}
+
+.back a {
+    margin-right: 70px;
+    margin-top: 20px;
+    float: right;
+    font-size: 35px;
+    color: #4465ad;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.middle {
+    margin: 0 auto;
+    width: 660px;
+}
+
+.logo {
+    height: 140px;
+    width: 573px;
+    margin: 0 auto;
+}
+
+.card {
+    height: 410px;
+    width: 660px;
+    position: relative;
+}
+
+.logincard {
+    position: absolute;
+    width: 660px;
+    height: 410px;
+    background: url(../img/登陆名片.png) no-repeat;
+    backface-visibility: hidden;
+    transform: perspective(600px) rotateX(0deg);
+}
+
+.registercard {
+    width: 660px;
+    height: 410px;
+    background: url(../img/注册.png) no-repeat;
+    position: absolute;
+    backface-visibility: hidden;
+    transform: perspective(600px) rotateX(180deg);
+}
+
+.gotorigester {
+    position: absolute;
+    left: 550px;
+    top: 50px;
+}
+
+.logincard .account {
+    margin-top: 114px;
+    margin-left: 157px;
+    height: 50px;
+    width: 365px;
+}
+
+.logincard .password {
+    margin-left: 212px;
+    margin-top: 22px;
+    height: 50px;
+    width: 365px;
+}
+
+.logincard .button {
+    width: 145px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.gotologin {
+    position: absolute;
+    left: 550px;
+    top: 50px;
+}
+
+.registercard .account {
+    margin-top: 110px;
+    margin-left: 125px;
+    height: 50px;
+    width: 184px;
+}
+
+.registercard .password {
+    margin-left: 128px;
+    margin-top: 15px;
+    height: 50px;
+    width: 415px;
+}
+
+.registercard .passwordconf {
+    margin-left: 128px;
+    margin-top: 12px;
+    height: 50px;
+    width: 415px;
+}
+
+.registercard .button {
+    width: 145px;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.registercard .tip {
+    position: relative;
+    left: 20px;
+    top: 12px;
+    width: 45px;
+}
+
+button img {
+    border-radius: 6px;
+}
+
+input {
+    font-size: 20px;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0px 10px;
+}
+
+button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+input::-webkit-input-placeholder {
+    font-size: 15px;
+}
+
+img {
+    -webkit-user-drag: none;
+}
+
+a {
+    -webkit-user-drag: none;
+}

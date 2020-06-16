@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>发布服务</title>
+		<script src="/mobile_web/js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/mobile_web/js/global.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/mobile_web/js/axios.min.js"></script>
+		<script src="/mobile_web/js/jquery-3.4.1.min.js"></script>
+		<script src="../js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/personhead.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../css/fuwuSubmit.css" />
+	</head>
+	<body>
+		<div id="app">
+			<div class="head">
+				<a href="/mobile_web/person/fuwuManage.html"><img src="../img/userHome/back.png"></a>
+				<div class="title">发布服务</div>
+				<div class="submit" @click="Submit()">确定</div>
+			</div>
+
+			<div class="main">
+				
+				<div class="white-bg">
+					<div class="item" id="title-field">
+						<div class="item-title">服务标题</div>
+						<input type="text" name="title" id="title" v-model="title"  placeholder="请输入服务标题"/>
+					</div>
+				</div>
+				
+				<div class="white-bg">
+					<div class="item" id="content-field">
+						<div class="item-title">服务内容</div>
+						<input type="text" name="content" id="content" v-model="content" placeholder="请输入服务内容"/>
+					</div>
+				</div>
+				
+				<div class="white-bg">
+					<div class="file-item" id="file-field">
+						<div class="item-title">上传图片</div>
+						<img class="img1" :src="img" v-if="img!=''">
+						<img class="jia1" src="../img/userHome/jia.png">
+						<img class="kuang1" src="../img/userHome/userHome_resume@2x.png">
+						<input type="file" accept="image/*" name="img" id="img" @change="updateId1()" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="friends">
+				<p>友情链接:</p>
+				<a :href="item.path" v-for="(item,i) in friends_list" :key="item.id">{{item.name}}</a>
+			</div>
+			<div class="zhuban">主办单位: {{zhuban}}</div>
+			<div class="chengban">承办单位: {{chengban}}</div>
+			<div class="addmob">地址: {{address}} 电话: {{mobile}}</div>
+		</div>
+		<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/fuwuSubmit.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

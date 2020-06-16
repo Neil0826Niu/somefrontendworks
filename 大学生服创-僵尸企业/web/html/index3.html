@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/jquery.cookie-1.4.1.min.js"></script>
+</head>
+
+<body>
+    <div class="background">
+        <div class="header">
+            <div class="login">
+                <div class="gotologin">
+                    <img src="../img/用户.png" style="width:30px;margin-right: 10px;">
+                    <a href="../html/login.html">
+                        <img src="../img/登陆_注册.png" class="logintxt">
+                    </a>
+                </div>
+                <div class="userinf" style="display: none">
+                    <span class="username">233</span>
+                    <button class="gotocenter">个人中心</button>
+                    <button class="logout">退出</button>
+                </div>
+            </div>
+        </div>
+        <div class="search">
+            <img src="../img/企业一查通.png">
+            <div class="searchbar">
+                <div class="selection">
+                    <img src="../img/大单个输入.png" id="singleimg"></a>
+                    <img src="../img/小批量查询.png" id="manyimg"></a>
+                </div>
+                <div class="input">
+                    <div class="menu" id="singlemenu">
+                        <input type="text" id="singlein" placeholder="请输入企业名称">
+                        <input type="button" class="singlebtn">
+                        <a href="" class="hot"><img src="../img/热搜榜.png"></a>
+                    </div>
+                    <div class="menu" id="manymenu" style="display: none">
+                        <textarea name="" id="manyin" cols="30" rows="10" placeholder=" 请输入企业名称，每行一个，回车换行"></textarea>
+                        <input type="button" class="manybtn">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(function () {
+                var username = $.cookie('username');
+                if (username != null) {
+                    $('.gotologin').css('display', 'none')
+                    $('.userinf').css('display', '')
+                    $('.username').html(username);
+                }
+                else {
+                    $('.gotologin').css('display', '')
+                    $('.userinf').css('display', 'none')
+                    
+                }
+                $('.logout').click(function () {
+                    $.removeCookie('username', { path: '/' })
+                    window.location.href="../html/index.html";
+                });
+                $('#manyimg').click(function () {
+                    $('#manyimg').attr('src', '../img/大批量查询.png');
+                    $('#singleimg').attr('src', '../img/小单个输入.png');
+                    $('#singlemenu').css('display', 'none');
+                    $('#manymenu').css('display', '');
+                });
+                $('#singleimg').click(function () {
+                    $('#manyimg').attr('src', '../img/小批量查询.png');
+                    $('#singleimg').attr('src', '../img/大单个输入.png');
+                    $('#singlemenu').css('display', '');
+                    $('#manymenu').css('display', 'none');
+                });
+            });
+        </script>
+    </div>
+</body>
+
+</html>

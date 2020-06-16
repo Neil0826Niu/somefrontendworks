@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>发布求职</title>
+		<script src="/mobile_web/js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/mobile_web/js/global.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/mobile_web/js/axios.min.js"></script>
+		<script src="/mobile_web/js/jquery-3.4.1.min.js"></script>
+		<script src="../js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/personhead.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../css/findJobSubmit.css" />
+	</head>
+	<body>
+		<div id="app">
+			<div class="head">
+				<a href="/mobile_web/person/findJobManage.html"><img src="../img/userHome/back.png"></a>
+				<div class="title">发布求职</div>
+				<div class="submit" @click="Submit()">确定</div>
+			</div>
+
+			<div class="main">
+				<div class="white-bg">
+					<div class="item" id="type-field">
+						<div class="item-title">选择行业</div>
+						<img class="go-img" src="../img/userHome/go.png">
+						<select class="type-sel" v-model="type">
+							<option v-for="(item,i) in type_lists" :key="item.id"  :value="item.name">{{item.name}}</option>
+						</select>
+					</div>
+				</div>
+				<div class="white-bg">
+					<div class="item" id="name-field">
+						<div class="item-title">岗位</div>
+						<input type="text" name="name" id="name" v-model="name" />
+					</div>
+				</div>
+				<div class="white-bg">
+					<div class="item" id="sex-field">
+						<div class="item-title">性别</div>
+						<img class="go-img" src="../img/userHome/go.png">
+						<select class="sex-sel" v-model="sex">
+							<option value="0">男</option>
+							<option value="1">女</option>
+						</select>
+					</div>
+				</div>
+				<div class="white-bg">
+					<div class="item" id="mobile-field">
+						<div class="item-title">手机号</div>
+						<input type="tel" name="mobile" id="mobile" maxlength="11" v-model="mobile" />
+					</div>
+				</div>
+				<div class="white-bg">
+					<div class="item" id="birthday-field">
+						<div class="item-title">出生日期</div>
+						<div class="birth-text">{{birthday}}</div>
+						<img class="go-img" src="../img/userHome/go.png">
+						<input type="date" name="birth" id="birth" v-model="birthday" />
+					</div>
+				</div>
+				<div class="white-bg">
+					<div class="item" id="study-field">
+						<div class="item-title">学历</div>
+						<img class="go-img" src="../img/userHome/go.png">
+						<select class="study-sel" v-model="study">
+							<option v-for="item in study_lists" :key="item.id" :value="item.name">{{item.name}}</option>
+						</select>
+					</div>
+				</div>
+				<div class="white-bg">
+					<div class="item" id="years-field">
+						<div class="item-title">工作经验</div>
+						<img class="go-img" src="../img/userHome/go.png">
+						<select class="years-sel" v-model="years">
+							<option v-for="item in years_lists" :key="item.id" :value="item.name">{{item.name}}</option>
+						</select>
+					</div>
+				</div>
+				<div class="white-bg">
+					<div class="item" id="pay-field">
+						<div class="item-title">薪资要求</div>
+						<img class="go-img" src="../img/userHome/go.png">
+						<select class="pay-sel" v-model="pay">
+							<option v-for="item in pay_lists" :key="item.id" :value="item.name">{{item.name}}</option>
+						</select>
+					</div>
+				</div>
+				<div class="white-bg">
+					<div class="item" id="signature-field">
+						<div class="item-title">个人简介</div>
+						<input type="text" name="signature" id="signature" v-model="signature" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="friends">
+				<p>友情链接:</p>
+				<a :href="item.path" v-for="(item,i) in friends_list" :key="item.id">{{item.name}}</a>
+			</div>
+			<div class="zhuban">主办单位: {{zhuban}}</div>
+			<div class="chengban">承办单位: {{chengban}}</div>
+			<div class="addmob">地址: {{address}} 电话: {{mobile}}</div>
+		</div>
+		<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/findJobSubmit.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

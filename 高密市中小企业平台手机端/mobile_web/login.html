@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>登陆</title>
+		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/global.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/axios.min.js"></script>
+		<script type="text/javascript">
+			initpage();
+			window.onresize = initpage;
+			window.onload=remove;
+			function remove(){
+				var d = new Date;
+				var token=getCookieToken();
+				d.setTime(d.getTime() -1);
+				window.document.cookie = "token_web" + "=" + token + ";path=/;expires=" + d.toGMTString();
+			}
+			function initpage() {
+				var view_width = document.getElementsByTagName('html')[0].getBoundingClientRect().width;
+				var _html = document.getElementsByTagName('html')[0];
+				window.fontSize = view_width / 7.5;
+				_html.style.fontSize = window.fontSize + 'px';
+			}
+		</script>
+		<link rel="stylesheet" type="text/css" href="css/login.css" />
+	</head>
+	<body>
+		<div class="top">
+			<div class="toparea">
+				<a class="index" href="/mobile_web/index.html">
+					<div class="logo"><img src="img/nav/logo@3x.png"></div>
+					<div class="logoname">高密市中小企业公共服务平台</div>
+				</a>
+				<div class="topright">
+					<a class="search" href="/mobile_web/qysq/qysq.html"><img src="img/nav/nav_search_icon@3x.png"></a>
+					<a class="user" href="/mobile_web/login.html"><img src="img/nav/nav_user_icon@3x.png"></a>
+				</div>
+			</div>
+		</div>
+		<div class="main">
+			<div class="middle">
+				<div class="login">用户登录</div>
+				<div class="loginform">
+					<div class="form-middle">
+						<div class="username-title">账 号:</div>
+						<div class="input-field">
+							<img src="img/login/login_Ellipse_icon@2x.png">
+							<input type="text" name="username" id="username" v-model="username" />
+						</div>
+						<div class="pw">
+							<div class="password-title">密 码:</div>
+							<a class="forget" href="/mobile_web/findPassword.html">忘记密码?</a>
+						</div>
+						<div class="input-field">
+							<img src="img/login/login_locked_icon@2x.png">
+							<input type="password" name="password" id="password" v-model="password" />
+						</div>
+						<div class="rem">
+							<input type="checkbox" name="" id="remember" value="" v-model="remember" />
+							<div class="remember-tip">记住账号，下次登录免输入</div>
+						</div>
+						<div class="login-btn" @click="password_login">登 陆</div>
+						<div class="bottom">
+							<div>没有账号?</div>
+							<a href="/mobile_web/register.html">立即注册</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/login.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

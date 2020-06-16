@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>查看认证</title>
+		<script src="/mobile_web/js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/mobile_web/js/global.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/mobile_web/js/axios.min.js"></script>
+		<script src="../js/personhead.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../css/checkJigou.css" />
+	</head>
+	<body>
+		<div id="app">
+			<div class="head">
+				<a href="/mobile_web/person/person.html"><img src="../img/userHome/back.png"></a>
+				<div class="title">查看认证</div>
+			</div>
+
+			<div class="main">
+				<div class="white-bg">
+
+				</div>
+				<div class="white-bg">
+					<div class="item" id="name-field">
+						<div class="item-title">机构名称</div>
+						<div class="item-content">{{company_name}}</div>
+					</div>
+				</div>
+				<div class="white-bg">
+					<div class="item" id="legal_person-field">
+						<div class="item-title">法人姓名</div>
+						<div class="item-content">{{legal_person}}</div>
+					</div>
+				</div>
+				<div class="white-bg">
+					<div class="item" id="mobile_name-field">
+						<div class="item-title">联系人</div>
+						<div class="item-content">{{mobile_name}}</div>
+					</div>
+				</div>
+				<div class="white-bg">
+					<div class="item" id="mobile-field">
+						<div class="item-title">联系电话</div>
+						<div class="item-content">{{mobile}}</div>
+					</div>
+				</div>
+				<div class="white-bg">
+					<div class="item" id="email-field">
+						<div class="item-title">邮箱</div>
+						<div class="item-content">{{email}}</div>
+					</div>
+				</div>
+				<div class="white-bg">
+					<div class="item" id="code-field">
+						<div class="item-title">统一社会信用代码</div>
+						<div class="code-content">{{code}}</div>
+					</div>
+				</div>
+				<div class="white-bg">
+					<div class="item" id="category_id-field">
+						<div class="item-title">服务类别代码</div>
+						<div class="code-content">{{category_id}}</div>
+					</div>
+				</div>
+				<div class="white-bg">
+					<div class="file-item" id="file-field">
+						<div class="item-title">资料上传</div>
+						<img class="img1" :src="logo">
+						<img class="img2" :src="company_img">
+						<div class="text1">企业LOGO</div>
+						<div class="text2">营业执照</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="friends">
+				<p>友情链接:</p>
+				<a :href="item.path" v-for="(item,i) in friends_list" :key="item.id">{{item.name}}</a>
+			</div>
+			<div class="zhuban">主办单位: {{zhuban}}</div>
+			<div class="chengban">承办单位: {{chengban}}</div>
+			<div class="addmob">地址: {{address}} 电话: {{mobile}}</div>
+		</div>
+		<script src="../js/checkCompany.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

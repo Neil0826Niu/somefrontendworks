@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>服务推荐</title>
+		<script src="/mobile_web/js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/mobile_web/js/global.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/mobile_web/js/axios.min.js"></script>
+		<script src="/mobile_web/js/head.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../css/fwtj.css" />
+	</head>
+	<body>
+		<div class="top">
+			<div class="toparea">
+				<a class="index" href="/mobile_web/index.html">
+					<div class="logo"><img src="../img/nav/logo@2x.png"></div>
+					<div class="logoname">高密市中小企业公共服务平台</div>
+				</a>
+
+				<div class="topright">
+					<a class="search" href="/mobile_web/qysq/qysq.html"><img src="../img/nav/nav_search_icon@2x.png"></a>
+					<a class="user" :href="jump"><img src="../img/nav/nav_user_icon@2x.png"></a>
+				</div>
+			</div>
+			<div class="selectbar">
+				<a class="select" href="/mobile_web/index.html">首页</a>
+				<a class="select" href="/mobile_web/qysq/qysq.html">企业诉求</a>
+				<a class="select" href="/mobile_web/zxjs/zxjs.html">中心介绍</a>
+				<a class="select" href="/mobile_web/zcfw/zcfw.html">政策服务</a>
+				<a class="selected" href="/mobile_web/fwtj/fwtj.html">服务推荐</a>
+				<a class="select" href="/mobile_web/qzzp/qzzp.html">求职招聘</a>
+				<a class="select" href="/mobile_web/qyfc/qyfc.html">企业风采</a>
+			</div>
+		</div>
+		<div class="main">
+			<dic class="selbar">
+				<span v-for="item in Fuwu_List" :key="item.id" @click="Changesel(item.id)">
+					<div class="title_seled" v-if="current_sel==item.id">{{item.name}}</div>
+					<div class="title_selno" v-else>{{item.name}}</div>
+				</span>
+			</dic>
+			<div class="list" >
+				<a class="item" v-for="item in item_lists" :key="item.id" :href="'/mobile_web/fwtj/fwtjDetails.html?id='+item.id">
+					<div class="item_user_nickname">{{item.user_nickname}}</div>
+				</a>
+				<div class="page">
+					<div class="pre-page" @click="PrePage()">上一页</div>
+					<div class="pre-page">当前第{{current_page}}页 共{{total_page}}页</div>
+					<div class="next-page" @click="NextPage()">下一页</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="friends">
+				<p>友情链接:</p>
+				<a :href="item.path" v-for="(item,i) in friends_list" :key="item.id">{{item.name}}</a>
+			</div>
+			<div class="zhuban">主办单位: {{zhuban}}</div>
+			<div class="chengban">承办单位: {{chengban}}</div>
+			<div class="addmob">地址: {{address}} 电话: {{mobile}}</div>
+		</div>
+		<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/fwtj.js" type="text/javascript" charset="utf-8"></script>
+
+	</body>
+</html>

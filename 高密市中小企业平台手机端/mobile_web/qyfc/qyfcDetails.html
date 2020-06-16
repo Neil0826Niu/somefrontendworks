@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>企业风采详情</title>
+		<script src="/mobile_web/js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/mobile_web/js/global.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/mobile_web/js/axios.min.js"></script>
+		<script src="/mobile_web/js/head.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../css/qyfcDetails.css" />
+	</head>
+	<body>
+		<div id="app">
+			<div class="head">
+				<a href="/mobile_web/qyfc/qyfc.html"><img src="../img/userHome/back.png"></a>
+				<div class="title">详情</div>
+			</div>
+			<div class="main">
+				<div class="top">
+					<div class="main-title">公司详情</div>
+					<div class="avatar"><img :src="qiyedata.logo"></div>
+					<div class="info">
+						<div class="name">公司名称:{{qiyedata.user_nickname}}</div>
+						<div class="url">公司官网:{{qiyedata.user_url}}</div>
+					</div>
+				</div>
+				<div class="signature">
+					<div class="sig_title">公司简介：</div>
+					<div class="sig_cont">{{qiyedata.signature}}</div>
+				</div>
+				<div class="fuwu" v-if="fuwu_list.length!=0">
+					<div class="fuwu_title">服务信息</div>
+					<div class="fuwu_list">
+						<a :href="'/mobile_web/qyfc/fuwuDetails.html?companyId='+id+'&fuwuId='+item.id" class="fuwu_item" v-for="item in  fuwu_list" :key="item.id">
+							<div class="fuwu_item_title">{{item.title}}</div>
+						</a>
+					</div>
+				</div>
+				<div class="zhaopin" v-if="zhaopin_list.length!=0">
+					<div class="zhaopin_title">招聘信息</div>
+					<div class="zhaopin_list">
+						<a :href="'/mobile_web/qzzp/zpDetails.html?id='+item.id" class="zhaopin_item" v-for="item in  zhaopin_list" :key="item.id">
+							<div class="zp_item_name">{{item.name}}</div>
+							<div class="zp_item_add">{{item.address}}</div>
+							<div class="zp_item_pay">{{item.pay}}</div>
+							<div class="zp_item_user_id">{{item.user_id}}</div>
+							<img src="../img/company/Company_user_icon_norml@2x.png">
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="friends">
+				<p>友情链接:</p>
+				<a :href="item.path" v-for="(item,i) in friends_list" :key="item.id">{{item.name}}</a>
+			</div>
+			<div class="zhuban">主办单位: {{zhuban}}</div>
+			<div class="chengban">承办单位: {{chengban}}</div>
+			<div class="addmob">地址: {{address}} 电话: {{mobile}}</div>
+		</div>
+		<script src="../js/qyfcDetails.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
+		
+	</body>
+</html>

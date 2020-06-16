@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>诉求发布</title>
+		<script src="/mobile_web/js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/mobile_web/js/global.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/mobile_web/js/axios.min.js"></script>
+		<script src="../js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/mobile_web/js/head.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../css/qysqSubmit.css" />
+	</head>
+	<body>
+		<div class="top">
+			<div class="toparea">
+				<a class="index" href="/mobile_web/index.html">
+					<div class="logo"><img src="../img/nav/logo@2x.png"></div>
+					<div class="logoname">高密市中小企业公共服务平台</div>
+				</a>
+
+				<div class="topright">
+					<a class="search" href="/mobile_web/qysq/qysq.html"><img src="../img/nav/nav_search_icon@2x.png"></a>
+					<a class="user" :href="jump"><img src="../img/nav/nav_user_icon@2x.png"></a>
+				</div>
+			</div>
+			<div class="selectbar">
+				<a class="select" href="/mobile_web/index.html">首页</a>
+				<a class="selected" href="/mobile_web/qysq/qysq.html">企业诉求</a>
+				<a class="select" href="/mobile_web/zxjs/zxjs.html">中心介绍</a>
+				<a class="select" href="/mobile_web/zcfw/zcfw.html">政策服务</a>
+				<a class="select" href="/mobile_web/fwtj/fwtj.html">服务推荐</a>
+				<a class="select" href="/mobile_web/qzzp/qzzp.html">求职招聘</a>
+				<a class="select" href="/mobile_web/qyfc/qyfc.html">企业风采</a>
+			</div>
+		</div>
+		<div class="main">
+			<div class="item">
+				<div class="xing">*</div>
+				<div class="title">收信单位：</div>
+				<select class="type-sel" v-model="shouxin">
+					<option v-for="item in shouxin_lists" :key="item.id" :value="item.id">{{item.name}}</option>
+				</select>
+			</div>
+			<div class="item">
+				<div class="xing">*</div>
+				<div class="title">收信类型：</div>
+				<div class="sel" @click="ClickZX()">
+					<img :src="sel_zx">
+					<div class="sel_cont">我要咨询</div>
+				</div>
+				<div class="sel" @click="ClickJY()">
+					<img :src="sel_jy">
+					<div class="sel_cont">我要建议</div>
+				</div>
+				<div class="sel" @click="ClickTS()">
+					<img :src="sel_ts">
+					<div class="sel_cont">我要投诉</div>
+				</div>
+				<div class="sel" @click="ClickJB()">
+					<img :src="sel_jb">
+					<div class="sel_cont">我要举报</div>
+				</div>
+			</div>
+			<div class="item">
+				<div class="xing">*</div>
+				<div class="title">标&emsp;&emsp;题：</div>
+				<input type="text" name="title" id="title" v-model="title" />
+			</div>
+			<div class="item" id="content_filed">
+				<div class="xing">*</div>
+				<div class="title">内&emsp;&emsp;容：</div>
+				<textarea class="content" v-model="content" placeholder="请输入内容"></textarea>
+			</div>
+			<div class="item">
+				<div class="xing">*</div>
+				<div class="title">是否匿名：</div>
+				<div class="sel" @click="ClickNMYes()">
+					<img :src="sel_nm_yes">
+					<div class="sel_cont">是</div>
+				</div>
+				<div class="sel" @click="ClickNMNo()">
+					<img :src="sel_nm_no">
+					<div class="sel_cont">否</div>
+				</div>
+			</div>
+			<div class="btn">
+				<a class="cancel" href="qysq.html">取消</a>
+				<div class="Submit" @click="Submit()">确定</div>
+			</div>
+
+		</div>
+		<div class="footer">
+			<div class="friends">
+				<p>友情链接:</p>
+				<a :href="item.path" v-for="(item,i) in friends_list" :key="item.id">{{item.name}}</a>
+			</div>
+			<div class="zhuban">主办单位: {{zhuban}}</div>
+			<div class="chengban">承办单位: {{chengban}}</div>
+			<div class="addmob">地址: {{address}} 电话: {{mobile}}</div>
+		</div>
+		<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/qysqSubmit.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

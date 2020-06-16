@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<title>政策服务</title>
+		<script src="/mobile_web/js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/mobile_web/js/global.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/mobile_web/js/axios.min.js"></script>
+		<script src="/mobile_web/js/head.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../css/zcfw.css" />
+	</head>
+	<body>
+		<div class="top">
+			<div class="toparea">
+				<a class="index" href="/mobile_web/index.html">
+					<div class="logo"><img src="../img/nav/logo@2x.png"></div>
+					<div class="logoname">高密市中小企业公共服务平台</div>
+				</a>
+
+				<div class="topright">
+					<a class="search" href="/mobile_web/qysq/qysq.html"><img src="../img/nav/nav_search_icon@2x.png"></a>
+					<a class="user" :href="jump"><img src="../img/nav/nav_user_icon@2x.png"></a>
+				</div>
+			</div>
+			<div class="selectbar">
+				<a class="select" href="/mobile_web/index.html">首页</a>
+				<a class="select" href="/mobile_web/qysq/qysq.html">企业诉求</a>
+				<a class="select" href="/mobile_web/zxjs/zxjs.html">中心介绍</a>
+				<a class="selected" href="/mobile_web/zcfw/zcfw.html">政策服务</a>
+				<a class="select" href="/mobile_web/fwtj/fwtj.html">服务推荐</a>
+				<a class="select" href="/mobile_web/qzzp/qzzp.html">求职招聘</a>
+				<a class="select" href="/mobile_web/qyfc/qyfc.html">企业风采</a>
+			</div>
+		</div>
+		<div class="main">
+			<dic class="selbar">
+				<span :class="zcfg_sel" @click="Clickzcfg()">政策法规</span>
+				<span :class="tzgg_sel" @click="Clicktzgg()">通知公告</span>
+				<span :class="gzdt_sel" @click="Clickgzdt()">工作动态</span>
+			</dic>
+			<div class="list" v-if="current==0">
+				<a class="item" v-for="item in gzdt_lists" :key="item.id" :href="'/mobile_web/zcfw/zcfwDetails.html?id='+item.id">
+					<div class="item_title">{{item.title}}</div>
+					<div class="item_time">{{item.create_time}}</div>
+				</a>
+				<div class="page">
+					<div class="pre-page" @click="gzdtPrePage()">上一页</div>
+					<div class="pre-page">当前第{{gzdt_current_page}}页 共{{gzdt_total_page}}页</div>
+					<div class="next-page" @click="gzdtNextPage()">下一页</div>
+				</div>
+
+			</div>
+			<div class="list" v-if="current==1">
+				<a class="item" v-for="item in zcfg_lists" :key="item.id" :href="'/mobile_web/zcfw/zcfwDetails.html?id='+item.id">
+					<div class="item_title">{{item.title}}</div>
+					<div class="item_time">{{item.create_time}}</div>
+				</a>
+				<div class="page">
+					<div class="pre-page" @click="zcfgPrePage()">上一页</div>
+					<div class="pre-page">当前第{{zcfg_current_page}}页 共{{zcfg_total_page}}页</div>
+					<div class="next-page" @click="zcfgNextPage()">下一页</div>
+				</div>
+
+			</div>
+			<div class="list" v-if="current==2">
+				<a class="item" v-for="item in tzgg_lists" :key="item.id" :href="'/mobile_web/zcfw/zcfwDetails.html?id='+item.id">
+					<div class="item_title">{{item.title}}</div>
+					<div class="item_time">{{item.create_time}}</div>
+				</a>
+				<div class="page">
+					<div class="pre-page" @click="tzggPrePage()">上一页</div>
+					<div class="pre-page">当前第{{tzgg_current_page}}页 共{{tzgg_total_page}}页</div>
+					<div class="next-page" @click="tzggNextPage()">下一页</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="footer">
+			<div class="friends">
+				<p>友情链接:</p>
+				<a :href="item.path" v-for="(item,i) in friends_list" :key="item.id">{{item.name}}</a>
+			</div>
+			<div class="zhuban">主办单位: {{zhuban}}</div>
+			<div class="chengban">承办单位: {{chengban}}</div>
+			<div class="addmob">地址: {{address}} 电话: {{mobile}}</div>
+		</div>
+		<script src="../js/footer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/zcfw.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>
